@@ -1,0 +1,25 @@
+<app-loader [isLoading]="isLoading"></app-loader>
+<div class="year-selection-container">
+    <form (ngSubmit)="submitYear()">
+      <div class="form-group">
+        <label for="year">Select Year</label>
+        <select id="year" class="form-control" [(ngModel)]="selectedYear" name="year">
+          <option value="" disabled [selected]="!selectedYear">Select your Year</option>
+          <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+        </select>
+      </div>
+      <button type="submit" class="button">Submit</button>
+    </form>
+
+    <div class="container" *ngIf="apiResponse && !isLoading">
+      <div class="results">
+          <div class="result" *ngFor="let item of apiResponse">
+              <div class="position">{{ item.round }}</div>
+              <div class="driver">
+                  {{ item.name }}
+              </div>
+              <div class="constructor">{{ item.circuit.location.country }}</div>
+          </div>
+      </div>
+    </div>
+</div>

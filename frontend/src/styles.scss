@@ -1,0 +1,17 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
+
+:root {
+  --f1-app-theme: #00ffdd;
+  --black-theme: #000;
+}
+
+$f1-app-theme: #00ffdd;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000000 !important;
+  // background-color: #ff0000;
+  color: $f1-app-theme !important;
+}

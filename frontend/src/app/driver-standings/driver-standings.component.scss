@@ -1,0 +1,73 @@
+@import url('../../styles.scss');
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+  
+.results {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .result {
+    font-family: "Segoe UI";
+    // font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+  }
+  
+  .result:hover {
+    border-style: groove;
+    border-color: #00ffcc;
+    padding: 10px 10px 10px 10px;
+  }
+  
+  .position {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00ffcc;
+    flex: 0 0 50px;
+  }
+  
+  .driver {
+    font-size: 19px;
+    flex: 1;
+    span {
+      font-size: 13px;
+      color: #888;
+    }
+  }
+  
+  .constructor {
+    font-size: 16px;
+    color: #888;
+    flex: 0 0 150px;
+    text-align: right;
+  }
+
+/******************** Media Query **************************/
+@media only screen and (max-width: 1200px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 5px;
+  }
+}

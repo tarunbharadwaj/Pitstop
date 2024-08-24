@@ -1,0 +1,15 @@
+<app-loader [isLoading]="isLoading"></app-loader>
+<div class="container" *ngIf="!isLoading">
+    <div class="results">
+        <div class="result" *ngFor="let item of currentStandingList">
+            <div class="position">{{ item.position }}</div>
+            <div class="driver">
+                {{ item.driver.firstName }} {{ item.driver.lastName }}
+                <br/>
+                <span> {{ item.constructors[0].name }} </span>
+            </div>
+            <!-- <div class="constructor">{{ item.constructors[0].name }}</div> -->
+            <div class="constructor">{{ item.points }}</div>
+        </div>
+    </div>
+</div>
