@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const apiRoutes = require('./routes/routes');
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // const F1_URL = 'https://www.formula1.com/en/latest/all';
 
