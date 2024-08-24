@@ -30,14 +30,14 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/current-constructor-standings" data-bs-dismiss="offcanvas">Constructors Standings</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" routerLink="/" data-bs-dismiss="offcanvas">Drivers Info</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" routerLink="/race-schedule" data-bs-dismiss="offcanvas">Race Schedule</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/" data-bs-dismiss="offcanvas">Driver Score Comparison</a>
+          <a class="nav-link" routerLink="/" data-bs-dismiss="offcanvas">Driver Stats</a>
         </li>
       </ul>
     </div>
@@ -54,10 +54,10 @@
       <h3>Countdown to: {{ nextRaceName }}, {{ nextRaceCountry }}</h3>
       <p>Starts In: {{ countdown }}</p>
     </div>
-    <!-- <div *ngIf="!nextRaceDate">
-      <h3>Race Is LIVE!</h3>
+    <div *ngIf="!nextRaceDate">
+      <!-- <h3>Race Is LIVE!</h3> -->
       <p>No upcoming races</p>
-    </div> -->
+    </div>
   </section>
 </main>
 <!-- Timer Ends -->

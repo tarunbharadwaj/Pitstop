@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DriversComponent } from './drivers/drivers.component';
 import { NewsComponent } from './news/news.component';
 import { LoaderComponent } from './loader/loader.component';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -17,18 +16,19 @@ import { ConstructorStandingsComponent } from './constructor-standings/construct
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { RaceScheduleComponent } from './race-schedule/race-schedule.component';
+import { DriverStatsComponent } from './driver-stats/driver-stats.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DriversComponent,
     NewsComponent,
     LoaderComponent,
     DriverStandingsComponent,
     ConstructorStandingsComponent,
     HeaderComponent,
     FooterComponent,
-    RaceScheduleComponent
+    RaceScheduleComponent,
+    DriverStatsComponent
   ],
   imports: [
     FormsModule,
