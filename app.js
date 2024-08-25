@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 // const axios = require('axios');
 // const cheerio = require('cheerio');
+const path = require('path');
 
 const app = express();
 const apiRoutes = require('./routes/routes');
@@ -54,6 +55,16 @@ app.use('/', apiRoutes);
 		res.status(500).send('Error fetching data');
 	}
 }); */
+
+
+app.use(express.static(path.join(__dirname, 'frontend/dist/f1-app')));
+
+// Catch-all route to handle Angular routing
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/dist/f1-app/index.html'));
+});
+
+
 
 app.get('/', (req, res) => {
 	res.send('Hello World!');
