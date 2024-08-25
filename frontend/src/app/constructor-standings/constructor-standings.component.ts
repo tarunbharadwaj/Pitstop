@@ -12,7 +12,7 @@ export class ConstructorStandingsComponent implements OnInit {
   currentStandingList: any = [];
   isLoading: boolean = true;
 
-  apiUrl = 'http://localhost:3000'
+  // apiUrl = 'http://localhost:3000'
 
   constructor(private http: HttpService) {}
 

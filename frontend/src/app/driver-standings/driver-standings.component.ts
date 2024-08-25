@@ -13,7 +13,7 @@ export class DriverStandingsComponent implements OnInit {
   currentStandingList: any = [];
   isLoading: boolean = true;
 
-  apiUrl = 'http://localhost:3000'
+  // apiUrl = 'http://localhost:3000'
 
   constructor(private http: HttpService) {}
 
@@ -27,8 +27,8 @@ export class DriverStandingsComponent implements OnInit {
    */
   currentStandingsList() {
     this.isLoading = true; // Show loader
-    let apiEndpoint = `${this.apiUrl}/currentdriverstandings`;
-    // let apiEndpoint = `${environment.apiUrl}/currentdriverstandings`;
+    // let apiEndpoint = `${this.apiUrl}/currentdriverstandings`;
+    let apiEndpoint = `${environment.apiUrl}/currentdriverstandings`;
     this.http.get(apiEndpoint).subscribe(
       (res: any) => {
         /* this.latestResults = res.data.standings.map((item: any) => ({

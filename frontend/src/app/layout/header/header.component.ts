@@ -25,13 +25,13 @@ export class HeaderComponent implements OnInit {
 
   isLoading: boolean = true;
 
-  apiUrl = 'http://localhost:3000'
+  // apiUrl = 'http://localhost:3000'
 
   constructor(private http: HttpService) {}
 
   ngOnInit(): void {
     // this.fetchDriversList();
-    this.currentStandingsList();
+    // this.currentStandingsList();
     this.daysLeftBeforeRaceSchedule();
   }
 
@@ -39,55 +39,55 @@ export class HeaderComponent implements OnInit {
   /**
    * To Fetch current year drivers List
    */
-  fetchDriversList() {
-    this.isLoading = true; // Show loader
-    let apiEndpoint = `${this.apiUrl}/driverlist`;
-    // let apiEndpoint = `${environment.apiUrl}/driverlist`;
-    this.http.get(apiEndpoint).subscribe(
-      (res) => {
-        this.driversList = res.data;
-        this.isLoading = false; // Hide loader once data is received
-      },
-      (error) => {
-        console.error('Error fetching data:', error);
-        this.isLoading = false; // Hide loader even if there's an error
-      }
-    );
-  }
+  // fetchDriversList() {
+  //   this.isLoading = true; // Show loader
+  //   // let apiEndpoint = `${this.apiUrl}/driverlist`;
+  //   let apiEndpoint = `${environment.apiUrl}/driverlist`;
+  //   this.http.get(apiEndpoint).subscribe(
+  //     (res) => {
+  //       this.driversList = res.data;
+  //       this.isLoading = false; // Hide loader once data is received
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching data:', error);
+  //       this.isLoading = false; // Hide loader even if there's an error
+  //     }
+  //   );
+  // }
 
   /**
    * To Fetch current standings List
    */
-  currentStandingsList() {
-    this.isLoading = true; // Show loader
-    let apiEndpoint = `${this.apiUrl}/currentdriverstandings`;
-    // let apiEndpoint = `${environment.apiUrl}/currentdriverstandings`;
-    this.http.get(apiEndpoint).subscribe(
-      (res: any) => {
-        /* this.latestResults = res.data.standings.map((item: any) => ({
-          position: item.position,
-          driver: `${item.driver.firstName} ${item.driver.lastName}`,
-          constructor: item.constructors[0].name,
-          points: item.points,
-        }));
-        console.log('latestResults>>>>>', this.latestResults); */
-        this.currentStandingList = res.data.standings;
-        this.isLoading = false; // Hide loader once data is received
-      },
-      (error) => {
-        console.error('Error fetching data:', error);
-        this.isLoading = false; // Hide loader even if there's an error
-      }
-    );
-  }
+  // currentStandingsList() {
+  //   this.isLoading = true; // Show loader
+  //   // let apiEndpoint = `${this.apiUrl}/currentdriverstandings`;
+  //   let apiEndpoint = `${environment.apiUrl}/currentdriverstandings`;
+  //   this.http.get(apiEndpoint).subscribe(
+  //     (res: any) => {
+  //       /* this.latestResults = res.data.standings.map((item: any) => ({
+  //         position: item.position,
+  //         driver: `${item.driver.firstName} ${item.driver.lastName}`,
+  //         constructor: item.constructors[0].name,
+  //         points: item.points,
+  //       }));
+  //       console.log('latestResults>>>>>', this.latestResults); */
+  //       this.currentStandingList = res.data.standings;
+  //       this.isLoading = false; // Hide loader once data is received
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching data:', error);
+  //       this.isLoading = false; // Hide loader even if there's an error
+  //     }
+  //   );
+  // }
 
   /**
    * To show the timer for the upcoming race
    */
   daysLeftBeforeRaceSchedule() {
     this.isLoading = true; // Show loader
-    let apiEndpoint = `${this.apiUrl}/raceschedule`;
-    // let apiEndpoint = `${environment.apiUrl}/raceschedule`;
+    // let apiEndpoint = `${this.apiUrl}/raceschedule`;
+    let apiEndpoint = `${environment.apiUrl}/raceschedule`;
     this.http.get(apiEndpoint).subscribe(
       (res) => {
         this.findNextUpcomingRace(res.data);
