@@ -12,6 +12,7 @@ export class DriverStandingsComponent implements OnInit {
 
   currentStandingList: any = [];
   isLoading: boolean = true;
+  errorMessage: any;
 
   // apiUrl = 'http://localhost:3000'
 
@@ -27,8 +28,15 @@ export class DriverStandingsComponent implements OnInit {
    */
   currentStandingsList() {
     this.isLoading = true; // Show loader
-    // let apiEndpoint = `${this.apiUrl}/currentdriverstandings`;
+    this.errorMessage = ''; // Reset error message
     let apiEndpoint = `${environment.apiUrl}/currentdriverstandings`;
+
+    // Set a timeout to display error message if request takes longer than 1 minute
+    const timeout = setTimeout(() => {
+      this.errorMessage = 'Oops! Not Able to Fetch Data, take a Nap and try after some time'; // Display error message
+      this.isLoading = false; // Hide loader
+    }, 60000); // 1 minute
+
     this.http.get(apiEndpoint).subscribe(
       (res: any) => {
         /* this.latestResults = res.data.standings.map((item: any) => ({
@@ -38,11 +46,14 @@ export class DriverStandingsComponent implements OnInit {
           points: item.points,
         }));
         console.log('latestResults>>>>>', this.latestResults); */
+        clearTimeout(timeout); // Clear the timeout if the request succeeds
         this.currentStandingList = res.data.standings;
         this.isLoading = false; // Hide loader once data is received
       },
       (error) => {
-        console.error('Error fetching data:', error);
+        clearTimeout(timeout); // Clear the timeout if an error occurs
+        // console.error('Error fetching data:', error);
+        this.errorMessage = 'Oops! Some error occurred'; // Display error message
         this.isLoading = false; // Hide loader even if there's an error
       }
     );

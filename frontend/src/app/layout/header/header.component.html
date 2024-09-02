@@ -30,14 +30,11 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/current-constructor-standings" data-bs-dismiss="offcanvas">Constructors Standings</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" routerLink="/" data-bs-dismiss="offcanvas">Drivers Info</a>
-        </li> -->
         <li class="nav-item">
           <a class="nav-link" routerLink="/race-schedule" data-bs-dismiss="offcanvas">Race Schedule</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/" data-bs-dismiss="offcanvas">Driver Stats</a>
+          <a class="nav-link" routerLink="/driver-stats" data-bs-dismiss="offcanvas">Driver Stats</a>
         </li>
       </ul>
     </div>
@@ -48,7 +45,7 @@
 
 
 <!-- Timer Starts -->
-<main *ngIf="!isLoading">
+<main *ngIf="!isLoading && !errorMessage">
   <section class="next-round">
     <div class="timer" *ngIf="nextRaceDate">
       <h3>Countdown to: {{ nextRaceName }}, {{ nextRaceCountry }}</h3>
@@ -61,3 +58,8 @@
   </section>
 </main>
 <!-- Timer Ends -->
+
+<!-- To display message if API call takes longer -->
+<div class="container" *ngIf="errorMessage">
+  <!-- <div class="delay">{{ errorMessage }}</div> -->
+</div>

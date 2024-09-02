@@ -4,6 +4,44 @@
     padding: 0;
 }
 
+/***************** Delay error styling ******************/
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+.delay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+/*********** Delay error styling :: Media Query ***************/
+@media only screen and (max-width: 1200px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+
 /**************** NavBar design ******************/
 /* nav ul {
   display: flex;

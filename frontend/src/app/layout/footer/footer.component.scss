@@ -1,0 +1,51 @@
+@import url('../../../styles.scss');
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  margin-top: 80vh;
+}
+  
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Segoe UI";
+  gap: 10px;
+  border-top: 1px solid;
+}
+
+.footer-details {
+  flex: 1;
+  margin-top: 20px;
+}
+
+.footer-link {
+  color: var(--points-color);
+  text-align: right;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/******************** Media Query **************************/
+@media only screen and (max-width: 1200px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 12px;
+  }
+}

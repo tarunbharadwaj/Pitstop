@@ -1,5 +1,5 @@
 <app-loader [isLoading]="isLoading"></app-loader>
-<div class="container" *ngIf="!isLoading">
+<div class="container" *ngIf="!isLoading && !errorMessage">
     <div class="results">
         <div class="result" *ngFor="let item of currentStandingList">
             <div class="position">{{ item.position }}</div>
@@ -9,4 +9,9 @@
             <div class="constructor">{{ item.points }}</div>
         </div>
     </div>
+</div>
+
+<!-- To display message if API call takes longer -->
+<div class="container" *ngIf="errorMessage">
+    <div class="delay">{{ errorMessage }}</div>
 </div>
