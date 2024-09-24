@@ -14,6 +14,7 @@ export class RaceScheduleComponent implements OnInit {
   apiResponse: any;
 
   isLoading: boolean = false;
+  errorMessage: any;
 
   constructor(private http: HttpService) {}
 
@@ -27,18 +28,29 @@ export class RaceScheduleComponent implements OnInit {
 
   submitYear() {
     this.isLoading = true; // Show loader
+    this.errorMessage = ''; // Reset error message
     let apiEndpoint = `${environment.apiUrl}/anySeasonRaceSchedule`;
     const payload = { 
       year: this.selectedYear 
     };
+
+    // Set a timeout to display error message if request takes longer than 1 minute
+    const timeout = setTimeout(() => {
+      this.errorMessage = 'Oops! Not Able to Fetch Data, take a Nap and try after some time'; // Display error message
+      this.isLoading = false; // Hide loader
+    }, 60000); // 1 minute
+
     this.http.post(apiEndpoint, payload).subscribe(
       (res: any) => {
-        this.isLoading = false; // Hide loader once data is received
+        clearTimeout(timeout); // Clear the timeout if the request succeeds
         this.apiResponse = res.data;
+        this.isLoading = false; // Hide loader once data is received
         // console.log("Checking POST apiResponse>>> ", this.apiResponse);
       },
       (error) => {
-        console.error('Error fetching data:', error);
+        clearTimeout(timeout); // Clear the timeout if an error occurs
+        // console.error('Error fetching data:', error);
+        this.errorMessage = 'Oops! Some error occurred'; // Display error message
         this.isLoading = false; // Hide loader even if there's an error
       }
     );

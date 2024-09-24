@@ -18,36 +18,6 @@ exports.getSeasonRacesSchedule = async (req, res) => {
 	}
 };
 
-/* To Fetch Current Year Drivers List */
-/* exports.getCurrentDrivers = async (req, res) => {
-	try {
-		const driverList = await f1.getCurrentDrivers();
-		if (driverList && driverList.length > 0) {
-			// console.log(driverList);
-			return res.status(200).json({ data: driverList });
-		} else {
-			console.log('No current driverList data found');
-		}
-	} catch (error) {
-		console.error('Error fetching driverList:', error.message);
-	}
-}; */
-
-/* To Fetch Constructor Standings for a given year and round */
-/* exports.getConstructorStandings = async (req, res) => {
-	try {
-		const constructorStandings = await f1.getConstructorStandings(2024);
-		if (constructorStandings) {
-			// console.log(constructorStandings);
-			return res.status(200).json({ data: constructorStandings });
-		} else {
-			console.log('No current constructorStandings data found');
-		}
-	} catch (error) {
-		console.error('Error fetching constructorStandings:', error.message);
-	}
-}; */
-
 /* To Fetch Current Year Constructor Standings */
 exports.getCurrentConstructorStandings = async (req, res) => {
 	try {
@@ -82,36 +52,6 @@ exports.getCurrentDriverStandings = async (req, res) => {
 	}
 };
 
-/* To Fetch Particular Year Drivers List */
-/* exports.getDrivers = async (req, res) => {
-	try {
-		const drivers = await f1.getDrivers(2023);
-		if (drivers) {
-			// console.log(drivers);
-			return res.status(200).json({ data: drivers });
-		} else {
-			console.log('No current drivers data found');
-		}
-	} catch (error) {
-		console.error('Error fetching drivers:', error.message);
-	}
-}; */
-
-/* To Fetch Particular Year Drivers Standing List */
-// exports.getDriverStandings = async (req, res) => {
-// 	try {
-// 		const drivers = await f1.getDriverStandings(2023);
-// 		if (drivers) {
-// 			return res.status(200).json({ data: drivers });
-// 		} else {
-// 			console.log('No current drivers data found');
-// 		}
-// 	} catch (error) {
-// 		console.error('Error fetching drivers:', error.message);
-// 	}
-// };
-
-
 /* To Fetch Any Year Race Schedule List :: Max Year 1950 */
 exports.anySeasonRaceSchedule = async (req, res) => {
 	try {
@@ -128,3 +68,63 @@ exports.anySeasonRaceSchedule = async (req, res) => {
 		console.error('Error fetching driver standings:', error.message);
 	}
 };
+
+/* To Fetch Driver Score for the particular race */
+exports.getDriverScores = async (req, res) => {
+	try {
+		const drivers = await f1.getDrivers(2024);
+		if (drivers) {
+			// console.log(drivers);
+			return res.status(200).json({ data: drivers });
+		} else {
+			console.log('No current drivers data found');
+		}
+	} catch (error) {
+		console.error('Error fetching drivers:', error.message);
+	}
+};
+
+/* To Fetch Driver Stats */
+exports.getDriverStats = async (req, res) => {
+	try {
+		const driverStats = await f1.getCurrentDriverStandings();
+		if (driverStats) {
+			// console.log(constructorStandings);
+			return res.status(200).json({ data: driverStats });
+		} else {
+			console.log('No driverStats data found');
+		}
+	} catch (error) {
+		console.error('Error fetching driverStats:', error.message);
+	}
+};
+
+
+/* To Fetch Particular Year Drivers Standing List */
+// exports.getDriverStandings = async (req, res) => {
+// 	try {
+// 		const drivers = await f1.getDriverStandings(2023);
+// 		if (drivers) {
+// 			return res.status(200).json({ data: drivers });
+// 		} else {
+// 			console.log('No current drivers data found');
+// 		}
+// 	} catch (error) {
+// 		console.error('Error fetching drivers:', error.message);
+// 	}
+// };
+
+/* To Fetch Current Year Drivers List */
+/* exports.getCurrentDrivers = async (req, res) => {
+	try {
+		const driverList = await f1.getCurrentDrivers();
+		if (driverList && driverList.length > 0) {
+			// console.log(driverList);
+			return res.status(200).json({ data: driverList });
+		} else {
+			console.log('No current driverList data found');
+		}
+	} catch (error) {
+		console.error('Error fetching driverList:', error.message);
+	}
+}; */

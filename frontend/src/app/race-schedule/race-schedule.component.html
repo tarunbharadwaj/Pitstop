@@ -11,7 +11,7 @@
       <button type="submit" class="button">Submit</button>
     </form>
 
-    <div class="container" *ngIf="apiResponse && !isLoading">
+    <div class="container" *ngIf="apiResponse && !isLoading && !errorMessage">
       <div class="results">
           <div class="result" *ngFor="let item of apiResponse">
               <div class="position">{{ item.round }}</div>
@@ -22,4 +22,9 @@
           </div>
       </div>
     </div>
+</div>
+
+<!-- To display message if API call takes longer -->
+<div class="container" *ngIf="errorMessage">
+  <div class="delay">{{ errorMessage }}</div>
 </div>
