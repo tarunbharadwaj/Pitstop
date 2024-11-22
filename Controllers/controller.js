@@ -69,7 +69,7 @@ exports.anySeasonRaceSchedule = async (req, res) => {
 	}
 };
 
-/* To Fetch Driver Score for the particular race */
+/* To Fetch Drivers names for the particular season */
 exports.getDriverScores = async (req, res) => {
 	try {
 		const drivers = await f1.getDrivers(2024);
@@ -88,6 +88,7 @@ exports.getDriverScores = async (req, res) => {
 exports.getDriverStats = async (req, res) => {
 	try {
 		const driverStats = await f1.getCurrentDriverStandings();
+		// const driverStats = await f1.getDriverStandings(2023);
 		if (driverStats) {
 			// console.log(constructorStandings);
 			return res.status(200).json({ data: driverStats });
@@ -114,17 +115,18 @@ exports.getDriverStats = async (req, res) => {
 // 	}
 // };
 
-/* To Fetch Current Year Drivers List */
-/* exports.getCurrentDrivers = async (req, res) => {
+/* DEMO API */
+exports.getDemo = async (req, res) => {
 	try {
-		const driverList = await f1.getCurrentDrivers();
-		if (driverList && driverList.length > 0) {
-			// console.log(driverList);
-			return res.status(200).json({ data: driverList });
+		// const demoList = await f1.getDriverStandings(2020);
+		const demoList = await f1.getDrivers(2024);
+		if (demoList) {
+			// console.log(demoList);
+			return res.status(200).json({ data: demoList });
 		} else {
-			console.log('No current driverList data found');
+			console.log('No current demoList data found');
 		}
 	} catch (error) {
-		console.error('Error fetching driverList:', error.message);
+		console.error('Error fetching demoList:', error.message);
 	}
-}; */
+};

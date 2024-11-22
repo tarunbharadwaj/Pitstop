@@ -8,16 +8,21 @@ const {
 	getCurrentDriverStandings,
 	getDriverScores,
 	getDriverStandings,
-	anySeasonRaceSchedule
+	anySeasonRaceSchedule,
+	getDemo
 } = require('../Controllers/controller');
+const { scrapeLatestNews } = require('../Controllers/webScraper');
 
 router.get('/raceschedule', getSeasonRacesSchedule);
-// router.get('/driverlist', getCurrentDrivers);
 router.get('/driverstats', getDriverStats);
 router.get('/currentconstructorstandings', getCurrentConstructorStandings);
 router.get('/currentdriverstandings', getCurrentDriverStandings);
 router.get('/driver-score', getDriverScores);
+
+router.get('/latestnews', scrapeLatestNews);
+
 // router.get('/driverstandings', getDriverStandings);
+router.get('/demolist', getDemo);
 
 router.post('/anySeasonRaceSchedule', anySeasonRaceSchedule);
 

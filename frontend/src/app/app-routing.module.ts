@@ -4,33 +4,38 @@ import { DriverStandingsComponent } from './driver-standings/driver-standings.co
 import { ConstructorStandingsComponent } from './constructor-standings/constructor-standings.component';
 import { RaceScheduleComponent } from './race-schedule/race-schedule.component';
 import { DriverStatsComponent } from './driver-stats/driver-stats.component';
+import { NewsComponent } from './news/news.component';
 
 const routes: Routes = [
-  { 
-    path: 'current-driver-standings', 
-    component: DriverStandingsComponent 
+  {
+    path: 'current-driver-standings',
+    component: DriverStandingsComponent,
   },
-  { 
-    path: 'current-constructor-standings', 
-    component: ConstructorStandingsComponent 
+  {
+    path: 'current-constructor-standings',
+    component: ConstructorStandingsComponent,
   },
-  { 
-    path: 'race-schedule', 
-    component: RaceScheduleComponent
+  {
+    path: 'race-schedule',
+    component: RaceScheduleComponent,
   },
-  { 
-    path: 'driver-stats', 
-    component: DriverStatsComponent
+  {
+    path: 'latest-news',
+    component: NewsComponent,
   },
-  { 
-    path: '', 
-    redirectTo: '/current-driver-standings',  // Default route 
-    pathMatch: 'full' 
+  {
+    path: 'driver-stats',
+    component: DriverStatsComponent,
+  },
+  {
+    path: '',
+    redirectTo: '/current-driver-standings', // Default route
+    pathMatch: 'full',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

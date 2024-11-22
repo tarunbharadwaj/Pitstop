@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from '../services/http.service';
 import { FormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +29,7 @@ import { DriverStatsComponent } from './driver-stats/driver-stats.component';
     HeaderComponent,
     FooterComponent,
     RaceScheduleComponent,
-    DriverStatsComponent
+    DriverStatsComponent,
   ],
   imports: [
     FormsModule,
@@ -36,9 +37,10 @@ import { DriverStatsComponent } from './driver-stats/driver-stats.component';
     AppRoutingModule,
     HttpClientModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    NgxSkeletonLoaderModule,
   ],
   providers: [HttpService, provideAnimationsAsync()],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

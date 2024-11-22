@@ -18,23 +18,61 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+  <div
+    class="offcanvas offcanvas-start"
+    tabindex="-1"
+    id="offcanvasMenu"
+    aria-labelledby="offcanvasMenuLabel"
+  >
     <div class="offcanvas-header">
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
     </div>
     <div class="offcanvas-body">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/current-driver-standings" data-bs-dismiss="offcanvas">Latest Standings</a>
+          <a
+            class="nav-link"
+            routerLink="/current-driver-standings"
+            data-bs-dismiss="offcanvas"
+            >Latest Standings</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/current-constructor-standings" data-bs-dismiss="offcanvas">Constructors Standings</a>
+          <a
+            class="nav-link"
+            routerLink="/current-constructor-standings"
+            data-bs-dismiss="offcanvas"
+            >Constructors Standings</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/race-schedule" data-bs-dismiss="offcanvas">Race Schedule</a>
+          <a
+            class="nav-link"
+            routerLink="/race-schedule"
+            data-bs-dismiss="offcanvas"
+            >Race Schedule</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/driver-stats" data-bs-dismiss="offcanvas">Driver Stats</a>
+          <a
+            class="nav-link"
+            routerLink="/latest-news"
+            data-bs-dismiss="offcanvas"
+            >Latest News</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/driver-stats"
+            data-bs-dismiss="offcanvas"
+            >Driver Stats</a
+          >
         </li>
       </ul>
     </div>
@@ -42,7 +80,6 @@
   <h5>F1 PITSTOP</h5>
 </nav>
 <!-- NavBar Ends -->
-
 
 <!-- Timer Starts -->
 <main *ngIf="!isLoading && !errorMessage">

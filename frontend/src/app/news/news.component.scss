@@ -1,0 +1,25 @@
+@import url("../../styles.scss");
+
+.card {
+  background-color: var(--black-theme);
+  color: var(--f1-app-theme);
+}
+
+.know-more {
+  text-decoration: none;
+  color: var(--points-color);
+
+  &:hover {
+    color: var(--f1-app-theme);
+  }
+}
+
+.paddock-news h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paddock-news .card {
+  margin: 40px 0px 0px 110px;
+}
