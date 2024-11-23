@@ -2,7 +2,16 @@ const puppeteer = require('puppeteer');
 
 exports.scrapeLatestNews = async (req, res) => {
 	try {
-		const browser = await puppeteer.launch({ headless: true });
+		const browser = await puppeteer.launch({
+			headless: true,
+			args: [
+				'--no-sandbox',
+				'--disable-setuid-sandbox',
+				'--disable-dev-shm-usage',
+				'--disable-accelerated-2d-canvas',
+				'--disable-gpu'
+			]
+		});
 		const page = await browser.newPage();
 
 		// Go to F1 website
