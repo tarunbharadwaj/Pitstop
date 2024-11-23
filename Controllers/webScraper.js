@@ -3,6 +3,7 @@ const puppeteer = require('puppeteer');
 exports.scrapeLatestNews = async (req, res) => {
 	try {
 		const browser = await puppeteer.launch({
+			executablePath: puppeteer.executablePath(),
 			headless: true,
 			args: [
 				'--no-sandbox',
